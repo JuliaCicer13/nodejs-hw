@@ -27,38 +27,27 @@ app.use(
 
 app.use(express.json());
 
-
-app.post('/users', (req, res) => {
-    console.log(req.body);
-    res.status(201).json({message : 'User created' })
-})
-// login time
-
-app.use((req, res, next) => {
-  console.log(`Time: ${new Date().toLocaleString()}`);
-  next();
-});
-
 // path
 
-app.get('/', (req, res) => {
-  res.status(200).json({message: 'Hello World'});
+app.get('/notes', (req, res) => {
+  res.status(200).json({message: "Retrieved all notes"});
 });
 
-// Маршрут для тестування middleware помилки
+app.get('/notes/:noteId',(req,res)=> {
+  const {noteId} = req.params;
+  res.status(200).json({message: "Retrieved note with ID: id_param"});
+});
 
 app.get('/test-error', (req, res) => {
-   // Штучна помилка для прикладу
    throw new Error('Something wetn wrong');
 });
 
-// Middleware 404 (після всіх маршрутів)
 
 app.use((req,res) => {
   res.status(404).json({message:'Route not found' });
 });
 
-// Middleware для обробки помилок
+
 
 app.use((err, req, res, next) => {
   console.error('Error:', err.message);
