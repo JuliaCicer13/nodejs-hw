@@ -1,4 +1,4 @@
-import {Student} from "../models/student";
+import {Student} from './';
 import createHttpError from "http-errors";
 
 export const getStudents = async (req,res) => {
@@ -16,3 +16,9 @@ export const getStudentById = async (req,res) => {
   }
   res.status(200).json(students)
 };
+
+
+export const createStudent = async (req,res) => {
+ const student = await Student.create(req.body);
+ res.status(201).json(student);
+}

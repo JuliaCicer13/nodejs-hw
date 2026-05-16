@@ -2,8 +2,9 @@ import {Router} from "express";
 
 import {
  getStudents,
-getStudentById
-} from "../controllers/studentsController";
+ getStudentById,
+ createStudent
+} from "../controllers/studentsController.js";
 
 const router = Router();
 
@@ -11,7 +12,7 @@ const router = Router();
 
 router.get('/students', getStudents);
 router.get('/students', getStudentById);
-
+rout.post('/student', createStudent);
 export default router;
 
 
