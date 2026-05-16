@@ -12,11 +12,11 @@ const router = Router();
 
 // path
 
-router.get('/notes', getAllNotes);
-router.get('/notes/:noteId', getNoteById);
-router.post('/notes', createNote);
-router.delete('/notes/:noteId', deleteNote);
-router.patch('/notes/:noteId', updateNote);
+router.get('/note', getAllNotes);
+router.get('/note/:noteId', getNoteById);
+router.post('/note', createNote);
+router.delete('/note/:noteId', deleteNote);
+router.patch('/note/:noteId', updateNote);
 export default router;
 
 
