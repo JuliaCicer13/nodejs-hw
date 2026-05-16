@@ -3,7 +3,7 @@ import {Router} from "express";
 import {
  getStudents,
  getStudentById,
- createStudent
+ createStudent,
 } from "../controllers/studentsController.js";
 
 const router = Router();
@@ -12,7 +12,7 @@ const router = Router();
 
 router.get('/students', getStudents);
 router.get('/students', getStudentById);
-rout.post('/student', createStudent);
+router.post('/students', createStudent);
 export default router;
 
 
