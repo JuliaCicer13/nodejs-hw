@@ -1,5 +1,4 @@
-import Joi from 'joi';
-import { Segments } from "celebrate";
+import { Joi , Segments } from "celebrate";
 import { isValidObjectId } from "mongoose";
 import { TAGS } from '../constants/tags.js'
 
