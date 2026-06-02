@@ -19,7 +19,7 @@ export const getAllNotesSchema = {
     page: Joi.number().integer().min(1).default(1),
     perPage: Joi.number().integer().min(5).max(20).default(10),
     tag: Joi.string()
-             .valid(...tags)
+             .valid(...TAGS)
              .optional(),
     search: Joi.string().trim().allow(""),
   }),
@@ -35,7 +35,7 @@ export const updateNoteSchema = {
   title: Joi.string().min(1),
   content: Joi.string().allow(""),
   tag: Joi.string()
-          .valid(...tags)
+          .valid(...TAGS)
           .optional(),
  }).min(1),
 };
@@ -45,7 +45,7 @@ export const createNoteSchema = {
   title: Joi.string().min(1).required(),
   content: Joi.string().allow(""),
   tag: Joi.string()
-          .valid(...tags)
+          .valid(...TAGS)
           .optional(),
 }),
 };
