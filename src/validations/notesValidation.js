@@ -1,4 +1,5 @@
-import { Joi, Segments } from "celebrate";
+import Joi from 'joi';
+import { Segments } from "celebrate";
 import { isValidObjectId } from "mongoose";
 
 
