@@ -1,7 +1,7 @@
 import Joi from 'joi';
 import { Segments } from "celebrate";
 import { isValidObjectId } from "mongoose";
-import { TAGS } from '../constants/tags';
+import { tags } from '../constants/tags';
 
 const objectIdValidator = (value, helpers) => {
     return !isValidObjectId(value) ? helpers.messages('Invalid id format') : value;
