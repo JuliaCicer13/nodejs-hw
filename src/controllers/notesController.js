@@ -6,12 +6,13 @@ export const getAllNotes = async (req,res) => {
   const {
     page = 1,
     perPage = 10,
-
+    search,
+    tag,
   } = req.query;
 
   const skip = (page - 1) * perPage;
 
-  const notesQuery = Notes.find();
+  const notesQuery = Note.find();
 
 
   if (search) {
@@ -19,7 +20,7 @@ export const getAllNotes = async (req,res) => {
       $or: [
         {title: { $regex: search, $options: 'i' } },
         {content: {$regex: search, $options: 'i'} },
-        {tag: {$regrex: search, $options: 'i'} },
+        {tag: {$regex: search, $options: 'i'} },
       ],
     });
   }
