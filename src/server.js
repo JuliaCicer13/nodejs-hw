@@ -8,18 +8,19 @@ import {notFoundHandler} from "./middleware/notFoundHandler.js";
 import {errorHandler} from "./middleware/errorHandler.js";
 import notesRouts from "./routes/notesRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
 
-app.use(authRoutes);
-app.use(logger);
+app.use(cors());
 app.use(express.json({
   type: ['application/json', 'application/vnd.api+json'],
   limit: '100kb',
 }));
-app.use(cors());
+app.use(logger);
 
+app.use(authRoutes);
 app.use(notesRouts);
 
 app.use(notFoundHandler);
