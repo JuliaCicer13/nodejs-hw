@@ -50,7 +50,7 @@ export const loginUser = async (req, res) => {
 
 }
 
-export const logutUser = async (req, res) => {
+export const logoutUser = async (req, res) => {
  const {sessionId} = req.cookies;
 
  if (sessionId) {
@@ -83,7 +83,7 @@ export const refreshUserSession = async (req, res) => {
  const isSessionTokenExpired = session.refreshTokenValidUntil < new Date();
 
  if (isSessionTokenExpired) {
-  await sdession.deleteOne();
+  await session.deleteOne();
   res.clearCookie('sessionId');
   res.clearCookie('accessToken');
   res.clearCookei('refreshToken');

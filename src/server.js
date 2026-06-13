@@ -18,6 +18,7 @@ app.use(express.json({
   type: ['application/json', 'application/vnd.api+json'],
   limit: '100kb',
 }));
+app.use(cookieParser);
 app.use(logger);
 
 app.use(authRoutes);
